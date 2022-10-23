@@ -59,7 +59,7 @@ class UsersService extends AbstractService implements ServiceInterface
         $this->client->request("DELETE", $this->getEndPoint() . '/' . $userId);
     }
 
-    public function getPerformanceReport(int $userId, array $params = null): array
+    public function getPerformanceReport(int $userId, array $params = null): object
     {
         $urlQuery = '';
         if (is_array($params)) {

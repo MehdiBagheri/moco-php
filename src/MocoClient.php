@@ -4,6 +4,7 @@ namespace Moco;
 
 use Http\Discovery\HttpClientDiscovery;
 use Http\Discovery\Psr17FactoryDiscovery;
+use Moco\Exception\InvalidRequestException;
 use Moco\Exception\InvalidResponseException;
 use Moco\Service\ServiceFactory;
 use Moco\Service\ServiceInterface;
@@ -20,12 +21,12 @@ use Psr\Http\Message\StreamFactoryInterface;
  */
 class MocoClient
 {
-    private string $token;
-    private string $endpoint;
-    private ServiceFactory $serviceFactory;
-    private ClientInterface $client;
-    private RequestFactoryInterface $requestFactory;
-    private StreamFactoryInterface $messageStream;
+    protected string $token;
+    protected string $endpoint;
+    protected ServiceFactory $serviceFactory;
+    protected RequestFactoryInterface $requestFactory;
+    protected StreamFactoryInterface $messageStream;
+    protected ClientInterface $client;
 
     public function __construct(array $params)
     {
@@ -64,7 +65,7 @@ class MocoClient
         return $this->endpoint;
     }
 
-    private function setEndpoint(string $endpoint): void
+    protected function setEndpoint(string $endpoint): void
     {
         $lastChar = substr($endpoint, -1);
         if ($lastChar != '/') {
@@ -73,19 +74,26 @@ class MocoClient
         $this->endpoint = $endpoint;
     }
 
-    private function createResponse(ResponseInterface $response): string
+    protected function createResponse(ResponseInterface $response): string
     {
-        if (!in_array($response->getStatusCode(), [200, 204])) {
-            throw new InvalidResponseException(
-                $response->getBody()->getContents(),
-                $response->getStatusCode()
-            );
+        if (in_array($response->getStatusCode(), range(200, 299))) {
+            return $response->getBody()->getContents();
+        } else {
+            if (in_array($response->getStatusCode(), range(400, 499))) {
+                throw new InvalidRequestException(
+                    $response->getBody()->getContents(),
+                    $response->getStatusCode()
+                );
+            } else {
+                throw new InvalidResponseException(
+                    $response->getBody()->getContents(),
+                    $response->getStatusCode()
+                );
+            }
         }
-
-        return $response->getBody()->getContents();
     }
 
-    private function getAuthHeader(): string
+    protected function getAuthHeader(): string
     {
         return 'Token token=' . $this->token;
     }

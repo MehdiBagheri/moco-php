@@ -43,7 +43,7 @@ class UsersServiceTest extends AbstractServiceTest
      */
     public function testCreateInvalidResponseException()
     {
-        $this->expectException(InvalidResponseException::class);
+        $this->expectException(InvalidRequestException::class);
         $this->mocoClient->users->create($this->createParams);
     }
 
@@ -76,9 +76,9 @@ class UsersServiceTest extends AbstractServiceTest
      */
     public function testGetPerformanceReport(int $userId)
     {
-        /**expect 404 response since the user has not performance report yet*/
-        $this->expectException(InvalidResponseException::class);
-        $this->mocoClient->users->getPerformanceReport($userId);
+        $datetime = new \DateTime();
+        $result = $this->mocoClient->users->getPerformanceReport($userId, ['year' => $datetime->format('Y')]);
+        $this->assertEquals((int) $datetime->format('Y'), $result->annually->year);
     }
 
     /**
