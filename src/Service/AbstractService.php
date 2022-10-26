@@ -7,11 +7,10 @@ use Moco\Exception\InvalidRequestException;
 use Moco\MocoClient;
 use Moco\Util\Util;
 
-abstract class AbstractService implements ServiceInterface
+abstract class AbstractService
 {
     protected MocoClient $client;
     protected string $endpoint;
-    protected string $entity;
 
     public function __construct(MocoClient $client)
     {
@@ -26,12 +25,12 @@ abstract class AbstractService implements ServiceInterface
 
     public function getEntity(): string
     {
-        return $this->entity;
+        throw new \Exception("this method must be implemented by children");
     }
 
     public function getMocoObject(): MocoEntityInterface
     {
-        return new $this->entity();
+        throw new \Exception("this method must be implemented by children");
     }
 
     public function create(array $params): MocoEntityInterface

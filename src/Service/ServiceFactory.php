@@ -6,7 +6,7 @@ use Moco\MocoClient;
 
 class ServiceFactory
 {
-    private static array $classMap = [
+    private array $classMap = [
         'units' => UnitsService::class,
         'users' => UsersService::class,
         'companies' => CompaniesService::class
@@ -22,7 +22,7 @@ class ServiceFactory
 
     protected function getServiceClass(string $name): string|null
     {
-        return \array_key_exists($name, self::$classMap) ? self::$classMap[$name] : null;
+        return \array_key_exists($name, $this->classMap) ? $this->classMap[$name] : null;
     }
 
     public function __get(string $name)
