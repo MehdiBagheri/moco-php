@@ -6,6 +6,7 @@ use Http\Discovery\HttpClientDiscovery;
 use Http\Discovery\Psr17FactoryDiscovery;
 use Moco\Exception\InvalidRequestException;
 use Moco\Exception\InvalidResponseException;
+use Moco\Service\CompaniesService;
 use Moco\Service\ServiceFactory;
 use Moco\Service\ServiceInterface;
 use Moco\Service\UnitsService;
@@ -18,6 +19,7 @@ use Psr\Http\Message\StreamFactoryInterface;
 /**
  * @property UnitsService $units
  * @property UsersService $users
+ * @property CompaniesService $companies
  */
 class MocoClient
 {

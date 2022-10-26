@@ -2,10 +2,11 @@
 
 namespace Moco\Service;
 
-use Moco\Entity\User;
+use Moco\Entity\MocoEntityInterface;
 
 interface ServiceInterface
 {
     public function getEndPoint(): string;
-    public function get(int|array|null $params = null): User|array|null;
+    public function getEntity(): string;
+    public function getMocoObject(): MocoEntityInterface;
 }

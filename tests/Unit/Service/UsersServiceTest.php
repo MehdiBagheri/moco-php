@@ -23,17 +23,14 @@ class UsersServiceTest extends AbstractServiceTest
         'info'         => 'info',
     ];
 
-    public function testCreate()
+    public function testCreate(): void
     {
         $this->mockResponse(200, json_encode($this->createParams));
         $user = $this->mocoClient->users->create($this->createParams);
         $this->assertEquals('ft_firstname', $user->firstname);
     }
 
-    /**
-     * @depends testCreate
-     */
-    public function testCreateInvalidRequestException()
+    public function testCreateInvalidRequestException(): void
     {
         $params = $this->createParams;
         unset($params['firstname']);
@@ -41,14 +38,14 @@ class UsersServiceTest extends AbstractServiceTest
         $this->mocoClient->users->create($params);
     }
 
-    public function testCreateInvalidResponseException()
+    public function testCreateInvalidResponseException(): void
     {
         $this->mockResponse(500);
         $this->expectException(InvalidResponseException::class);
         $this->mocoClient->users->create($this->createParams);
     }
 
-    public function testGet()
+    public function testGet(): void
     {
         $this->mockResponse(200, json_encode($this->createParams));
         $user = $this->mocoClient->users->get(123);
@@ -63,7 +60,7 @@ class UsersServiceTest extends AbstractServiceTest
         $this->mocoClient->users->get(1234);
     }
 
-    public function testUpdate()
+    public function testUpdate(): void
     {
         $params = $this->createParams;
         $params['firstname'] = 'changed';
@@ -76,13 +73,13 @@ class UsersServiceTest extends AbstractServiceTest
         $this->mocoClient->users->update(1234, $params);
     }
 
-    public function testDelete()
+    public function testDelete(): void
     {
         $this->mockResponse(204);
         $this->assertNull($this->mocoClient->users->delete(123));
     }
 
-    public function testGetPerformanceReport()
+    public function testGetPerformanceReport(): void
     {
         $this->mockResponse(200, json_encode(['annually' => ['year' => 2022]]));
         $response = $this->mocoClient->users->getPerformanceReport(123);
