@@ -18,20 +18,9 @@ abstract class AbstractService
         $this->endpoint = $client->getEndpoint();
     }
 
-    public function getEndpoint(): string
-    {
-        return $this->endpoint;
-    }
-
-    public function getEntity(): string
-    {
-        throw new \Exception("this method must be implemented by children");
-    }
-
-    public function getMocoObject(): MocoEntityInterface
-    {
-        throw new \Exception("this method must be implemented by children");
-    }
+    abstract protected function getEndpoint();
+    abstract protected function getEntity();
+    abstract protected function getMocoObject();
 
     public function create(array $params): MocoEntityInterface
     {
@@ -78,7 +67,7 @@ abstract class AbstractService
         $this->client->request("DELETE", $this->getEndPoint() . '/' . $id);
     }
 
-    public function validateParams(MocoEntityInterface $mocoEntity, array $params): void
+    private function validateParams(MocoEntityInterface $mocoEntity, array $params): void
     {
         $mandatoryFields = $mocoEntity->getMandatoryFields();
         foreach ($mandatoryFields as $mandatoryField) {

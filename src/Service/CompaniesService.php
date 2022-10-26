@@ -5,25 +5,19 @@ namespace Moco\Service;
 use Moco\Entity\Company;
 use Moco\Entity\MocoEntityInterface;
 
-/**
- * @method Company create(array $params)
- * @method Company|array|null get(int|array|null $params = null)
- * @method Company update(int $id, array $params)
- * @method void delete(int $id)
- */
-class CompaniesService extends AbstractService implements ServiceInterface
+class CompaniesService extends AbstractService
 {
-    public function getEndPoint(): string
+    protected function getEndPoint(): string
     {
-        return parent::getEndpoint() . 'companies';
+        return $this->endpoint . 'companies';
     }
 
-    public function getEntity(): string
+    protected function getEntity(): string
     {
         return Company::class;
     }
 
-    public function getMocoObject(): MocoEntityInterface
+    protected function getMocoObject(): MocoEntityInterface
     {
         return new Company();
     }

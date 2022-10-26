@@ -9,7 +9,8 @@ class ServiceFactory
     private array $classMap = [
         'units' => UnitsService::class,
         'users' => UsersService::class,
-        'companies' => CompaniesService::class
+        'companies' => CompaniesService::class,
+        'account' => AccountService::class,
     ];
 
     protected array $services = [];

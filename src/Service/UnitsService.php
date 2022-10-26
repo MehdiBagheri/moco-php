@@ -2,10 +2,23 @@
 
 namespace Moco\Service;
 
-class UnitsService extends AbstractService implements ServiceInterface
+use Moco\Entity\MocoEntityInterface;
+use Moco\Entity\Unit;
+
+class UnitsService extends AbstractService
 {
     public function getEndPoint(): string
     {
-        return parent::getEndpoint() . 'units';
+        return $this->endpoint . 'units';
+    }
+
+    protected function getEntity(): string
+    {
+        return Unit::class;
+    }
+
+    protected function getMocoObject(): MocoEntityInterface
+    {
+        return new Unit();
     }
 }
