@@ -18,9 +18,9 @@ abstract class AbstractService
         $this->endpoint = $client->getEndpoint();
     }
 
-    abstract protected function getEndpoint();
-    abstract protected function getEntity();
-    abstract protected function getMocoObject();
+    abstract protected function getEndpoint(): string;
+    abstract protected function getEntity(): string;
+    abstract protected function getMocoObject(): MocoEntityInterface;
 
     public function create(array $params): MocoEntityInterface
     {

@@ -4,7 +4,6 @@ namespace Unit\Service;
 
 use Moco\Exception\InvalidRequestException;
 use Moco\Exception\InvalidResponseException;
-use PHP_CodeSniffer\Tests\Core\File\testFIINImplementedClass;
 
 class CompaniesServiceTest extends AbstractServiceTest
 {

@@ -5,6 +5,12 @@ namespace Moco\Service;
 use Moco\Entity\MocoEntityInterface;
 use Moco\Entity\User;
 
+/**
+ * @method User create(array $params)
+ * @method User|array|null get(int|array|null $params = null)
+ * @method User update(int $id, array $params)
+ * @method void delete(int $id)
+ */
 class UsersService extends AbstractService
 {
     public function getEndPoint(): string

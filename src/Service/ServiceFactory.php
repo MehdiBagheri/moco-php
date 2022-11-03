@@ -10,7 +10,7 @@ class ServiceFactory
         'units' => UnitsService::class,
         'users' => UsersService::class,
         'companies' => CompaniesService::class,
-        'account' => AccountService::class,
+        'account' => AccountServiceFactory::class,
     ];
 
     protected array $services = [];
@@ -26,7 +26,7 @@ class ServiceFactory
         return \array_key_exists($name, $this->classMap) ? $this->classMap[$name] : null;
     }
 
-    public function __get(string $name)
+    public function __get(string $name): AbstractService|AccountServiceFactory|null
     {
         $serviceClass = $this->getServiceClass($name);
         if (!is_null($serviceClass)) {
