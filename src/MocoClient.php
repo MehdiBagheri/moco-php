@@ -7,7 +7,7 @@ use Http\Discovery\Psr17FactoryDiscovery;
 use Moco\Exception\InvalidRequestException;
 use Moco\Exception\InvalidResponseException;
 use Moco\Service\AbstractService;
-use Moco\Service\AccountService;
+use Moco\Service\AccountServiceFactory;
 use Moco\Service\CompaniesService;
 use Moco\Service\ServiceFactory;
 use Moco\Service\UnitsService;
@@ -21,7 +21,7 @@ use Psr\Http\Message\StreamFactoryInterface;
  * @property UnitsService $units
  * @property UsersService $users
  * @property CompaniesService $companies
- * @property AccountService $account
+ * @property AccountServiceFactory $account
  */
 class MocoClient
 {
@@ -47,7 +47,7 @@ class MocoClient
         $this->serviceFactory = new ServiceFactory($this);
     }
 
-    public function __get(string $name): AbstractService
+    public function __get(string $name): AbstractService|AccountServiceFactory|null
     {
         return $this->serviceFactory->__get($name);
     }
