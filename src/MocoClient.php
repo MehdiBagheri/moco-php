@@ -6,6 +6,7 @@ use Http\Discovery\HttpClientDiscovery;
 use Http\Discovery\Psr17FactoryDiscovery;
 use Moco\Exception\InvalidRequestException;
 use Moco\Exception\InvalidResponseException;
+use Moco\Exception\NotFoundException;
 use Moco\Service\AbstractService;
 use Moco\Service\AccountServiceFactory;
 use Moco\Service\CompaniesService;
@@ -84,10 +85,14 @@ class MocoClient
             return $response->getBody()->getContents();
         } else {
             if (in_array($response->getStatusCode(), range(400, 499))) {
-                throw new InvalidRequestException(
-                    $response->getBody()->getContents(),
-                    $response->getStatusCode()
-                );
+                if ($response->getStatusCode() === 404) {
+                    throw new NotFoundException('Requested entity not found.');
+                } else {
+                    throw new InvalidRequestException(
+                        $response->getBody()->getContents(),
+                        $response->getStatusCode()
+                    );
+                }
             } else {
                 throw new InvalidResponseException(
                     $response->getBody()->getContents(),
