@@ -43,12 +43,12 @@ abstract class AbstractService
 
         $result = json_decode($result);
         if (is_array($result)) {
-            $users = [];
-            foreach ($result as $user) {
-                $users[] = Util::createMocoEntity($user, $this->getEntity());
+            $entities = [];
+            foreach ($result as $entity) {
+                $entities[] = Util::createMocoEntity($entity, $this->getEntity());
             }
 
-            return $users;
+            return $entities;
         } else {
             return Util::createMocoEntity($result, $this->getEntity());
         }
