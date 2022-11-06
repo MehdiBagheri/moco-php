@@ -4,7 +4,6 @@ namespace Functional\Service\Account;
 
 use Functional\Service\AbstractServiceTest;
 use Moco\Entity\HourlyRate;
-use Moco\Exception\InvalidRequestException;
 use Moco\Exception\NotFoundException;
 
 class HourlyRatesServiceTest extends AbstractServiceTest

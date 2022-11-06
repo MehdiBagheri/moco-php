@@ -2,7 +2,6 @@
 
 namespace Unit\Service\Account;
 
-use Moco\Exception\InvalidRequestException;
 use Unit\Service\AbstractServiceTest;
 
 class FixedCostsServiceTest extends AbstractServiceTest
