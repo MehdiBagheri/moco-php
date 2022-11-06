@@ -37,8 +37,5 @@ class FixedCostsServiceTest extends AbstractServiceTest
         $this->mockResponse(200, json_encode([$mockedFixedCosts]));
         $costs = $this->mocoClient->account->fixedCosts->get();
         $this->assertEquals(123, $costs[0]->id);
-
-        $this->expectException(InvalidRequestException::class);
-        $this->mocoClient->account->fixedCosts->get(123);
     }
 }

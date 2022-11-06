@@ -4,6 +4,10 @@ namespace Moco\Service;
 
 use Moco\Entity\MocoEntityInterface;
 use Moco\Entity\User;
+use Moco\Service\Tarit\Create;
+use Moco\Service\Tarit\Delete;
+use Moco\Service\Tarit\Get;
+use Moco\Service\Tarit\Update;
 
 /**
  * @method User create(array $params)
@@ -13,6 +17,11 @@ use Moco\Entity\User;
  */
 class UsersService extends AbstractService
 {
+    use Get;
+    use Create;
+    use Update;
+    use Delete;
+
     public function getEndPoint(): string
     {
         return $this->endpoint . 'users';

@@ -4,7 +4,6 @@ namespace Moco\Service\Account;
 
 use Moco\Entity\HourlyRate;
 use Moco\Entity\MocoEntityInterface;
-use Moco\Exception\InvalidRequestException;
 use Moco\Service\AbstractService;
 
 class HourlyRatesService extends AbstractService
@@ -24,26 +23,26 @@ class HourlyRatesService extends AbstractService
         return new HourlyRate();
     }
 
-    public function get(int|array|null $params = null): HourlyRate|array|null
+    public function get(array $params = null): MocoEntityInterface|array|null
     {
-        if (!empty($params) && !is_array($params)) {
-            throw new InvalidRequestException('Hourly rates does not support fetch single entity');
+        $urlQuery = '';
+        if (!is_null($params)) {
+            $params = $this->prepareParams($params);
+            $urlQuery = '?' . http_build_query($params);
         }
-        return parent::get($params);
-    }
 
-    public function create(array $params): MocoEntityInterface
-    {
-        throw new InvalidRequestException('Hourly rates does not support create function.');
-    }
+        $result = $this->client->request("GET", $this->getEndPoint() . $urlQuery);
 
-    public function update(int $id, array $params): MocoEntityInterface
-    {
-        throw new InvalidRequestException('Hourly rates does not support update function.');
-    }
+        $result = json_decode($result);
+        if (is_array($result)) {
+            $entities = [];
+            foreach ($result as $entity) {
+                $entities[] = $this->createMocoEntity($entity, $this->getEntity());
+            }
 
-    public function delete(int $id): void
-    {
-        throw new InvalidRequestException('Hourly rates does not support delete function.');
+            return $entities;
+        } else {
+            return $this->createMocoEntity($result, $this->getEntity());
+        }
     }
 }

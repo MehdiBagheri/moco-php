@@ -5,7 +5,6 @@ namespace Moco\Service;
 use Moco\Entity\MocoEntityInterface;
 use Moco\Exception\InvalidRequestException;
 use Moco\MocoClient;
-use Moco\Util\Util;
 
 abstract class AbstractService
 {
@@ -22,52 +21,7 @@ abstract class AbstractService
     abstract protected function getEntity(): string;
     abstract protected function getMocoObject(): MocoEntityInterface;
 
-    public function create(array $params): MocoEntityInterface
-    {
-        $this->validateParams($this->getMocoObject(), $params);
-        $params = $this->prepareParams($params);
-        $result = $this->client->request('POST', $this->getEndPoint(), $params);
-
-        return Util::createMocoEntity(json_decode($result), $this->getEntity());
-    }
-
-    public function get(int|array|null $params = null): MocoEntityInterface|array|null
-    {
-        if (is_array($params)) {
-            $params = $this->prepareParams($params);
-            $urlQuery = '?' . http_build_query($params);
-            $result = $this->client->request("GET", $this->getEndPoint() . $urlQuery);
-        } else {
-            $result = $this->client->request("GET", $this->getEndPoint() . '/' . $params);
-        }
-
-        $result = json_decode($result);
-        if (is_array($result)) {
-            $entities = [];
-            foreach ($result as $entity) {
-                $entities[] = Util::createMocoEntity($entity, $this->getEntity());
-            }
-
-            return $entities;
-        } else {
-            return Util::createMocoEntity($result, $this->getEntity());
-        }
-    }
-
-    public function update(int $id, array $params): MocoEntityInterface
-    {
-        $params = $this->prepareParams($params);
-        $result = $this->client->request("PUT", $this->getEndPoint() . '/' . $id, $params);
-
-        return Util::createMocoEntity(json_decode($result), $this->getEntity());
-    }
-
-    public function delete(int $id): void
-    {
-        $this->client->request("DELETE", $this->getEndPoint() . '/' . $id);
-    }
-
-    private function validateParams(MocoEntityInterface $mocoEntity, array $params): void
+    protected function validateParams(MocoEntityInterface $mocoEntity, array $params): void
     {
         $mandatoryFields = $mocoEntity->getMandatoryFields();
         foreach ($mandatoryFields as $mandatoryField) {
@@ -81,7 +35,7 @@ abstract class AbstractService
         }
     }
 
-    private function prepareParams(array $params): array
+    protected function prepareParams(array $params): array
     {
         foreach ($params as $key => $param) {
             if (is_bool($param)) {
@@ -90,5 +44,14 @@ abstract class AbstractService
         }
 
         return $params;
+    }
+
+    protected function createMocoEntity(\stdClass $data, string $entity): MocoEntityInterface
+    {
+        $entity = new $entity();
+        foreach ($data as $key => $item) {
+            $entity->$key = $item;
+        }
+        return $entity;
     }
 }

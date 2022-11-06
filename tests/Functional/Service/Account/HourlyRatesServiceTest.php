@@ -16,8 +16,5 @@ class HourlyRatesServiceTest extends AbstractServiceTest
 
         $this->expectException(NotFoundException::class);
         $this->mocoClient->account->hourlyRates->get(['company_id' => 123]);
-
-        $this->expectException(InvalidRequestException::class);
-        $this->mocoClient->account->hourlyRates->create([]);
     }
 }

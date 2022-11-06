@@ -4,6 +4,10 @@ namespace Moco\Service;
 
 use Moco\Entity\Company;
 use Moco\Entity\MocoEntityInterface;
+use Moco\Service\Tarit\Create;
+use Moco\Service\Tarit\Delete;
+use Moco\Service\Tarit\Get;
+use Moco\Service\Tarit\Update;
 
 /**
  * @method Company create(array $params)
@@ -13,6 +17,11 @@ use Moco\Entity\MocoEntityInterface;
  */
 class CompaniesService extends AbstractService
 {
+    use Get;
+    use Create;
+    use Update;
+    use Delete;
+
     protected function getEndPoint(): string
     {
         return $this->endpoint . 'companies';

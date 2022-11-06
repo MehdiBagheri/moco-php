@@ -35,22 +35,4 @@ class CustomPropertiesTest extends AbstractServiceTest
         $customProperties = $this->mocoClient->account->customProperties->get(8601);
         $this->assertEquals(8601, $customProperties->id);
     }
-
-    public function testCreate(): void
-    {
-        $this->expectException(InvalidRequestException::class);
-        $this->mocoClient->account->customProperties->create([]);
-    }
-
-    public function testUpdate(): void
-    {
-        $this->expectException(InvalidRequestException::class);
-        $this->mocoClient->account->customProperties->update(8601, []);
-    }
-
-    public function testDelete(): void
-    {
-        $this->expectException(InvalidRequestException::class);
-        $this->mocoClient->account->customProperties->delete(8601);
-    }
 }
