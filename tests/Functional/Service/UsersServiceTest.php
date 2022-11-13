@@ -25,7 +25,9 @@ class UsersServiceTest extends AbstractServiceTest
 
     public function testCreate(): int
     {
-        /**if it was successful then the user is object is returned so */
+        /**
+* if it was successful then the user is object is returned so
+*/
         $user = $this->mocoClient->users->create($this->createParams);
         $this->assertEquals($user->firstname, 'ft_firstname');
         return $user->id;

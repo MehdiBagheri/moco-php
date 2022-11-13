@@ -31,7 +31,9 @@ class CompaniesServiceTest extends AbstractServiceTest
 
     public function testCreate(): int
     {
-        /**if it was successful then the user is object is returned so */
+        /**
+* if it was successful then the user is object is returned so
+*/
         $company = $this->mocoClient->companies->create($this->createParams);
         $this->assertEquals($company->name, 'Company A');
         return $company->id;

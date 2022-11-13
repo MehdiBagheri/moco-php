@@ -8,6 +8,7 @@ use PHPUnit\Framework\TestCase;
 abstract class AbstractServiceTest extends TestCase
 {
     public MocoClient $mocoClient;
+    protected int $leaderId;
 
     public function __construct(?string $name = null, array $data = [], $dataName = '')
     {
@@ -17,6 +18,8 @@ abstract class AbstractServiceTest extends TestCase
                 'token' => getenv("TOKEN")
             ]
         );
+
+        $this->leaderId = getenv('LEADER_ID');
 
         parent::__construct($name, $data, $dataName);
     }

@@ -10,6 +10,7 @@ use Moco\Exception\NotFoundException;
 use Moco\Service\AbstractService;
 use Moco\Service\AccountServiceFactory;
 use Moco\Service\CompaniesService;
+use Moco\Service\ProjectsService;
 use Moco\Service\ServiceFactory;
 use Moco\Service\UnitsService;
 use Moco\Service\UsersService;
@@ -23,6 +24,7 @@ use Psr\Http\Message\StreamFactoryInterface;
  * @property UsersService $users
  * @property CompaniesService $companies
  * @property AccountServiceFactory $account
+ * @property ProjectsService $projects
  */
 class MocoClient
 {

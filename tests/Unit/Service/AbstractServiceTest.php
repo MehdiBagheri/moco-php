@@ -6,6 +6,7 @@ use Http\Discovery\HttpClientDiscovery;
 use Http\Discovery\Strategy\MockClientStrategy;
 use Moco\Exception\InvalidRequestException;
 use Moco\Exception\InvalidResponseException;
+use Moco\Exception\NotFoundException;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
@@ -29,7 +30,9 @@ class AbstractServiceTest extends TestCase
 
     public function mockResponse(int $expectedStatusCode, string $expectedReturn = '')
     {
-        /**mock response*/
+        /**
+* mock response
+*/
         $response = $this->createMock(ResponseInterface::class);
         $response->method('getStatusCode')->willReturn($expectedStatusCode);
 
@@ -39,6 +42,10 @@ class AbstractServiceTest extends TestCase
             $response->method('getBody')->willReturn($streamInterface);
             $this->mocoClient->getClient()->addResponse($response);
         } elseif (in_array($expectedStatusCode, range(400, 499))) {
+            if ($expectedStatusCode === 404) {
+                $exception =  new NotFoundException();
+                $this->mocoClient->getClient()->addException($exception);
+            }
             $exception =  new InvalidRequestException();
             $this->mocoClient->getClient()->addException($exception);
         } else {
