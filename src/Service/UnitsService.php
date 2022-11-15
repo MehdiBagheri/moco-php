@@ -12,11 +12,6 @@ class UnitsService extends AbstractService
         return $this->endpoint . 'units';
     }
 
-    protected function getEntity(): string
-    {
-        return Unit::class;
-    }
-
     protected function getMocoObject(): MocoEntityInterface
     {
         return new Unit();

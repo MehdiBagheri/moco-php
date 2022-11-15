@@ -12,6 +12,6 @@ trait Create
         $params = $this->prepareParams($params);
         $result = $this->client->request('POST', $this->getEndPoint(), $params);
 
-        return $this->createMocoEntity(json_decode($result), $this->getEntity());
+        return $this->createMocoEntity(json_decode($result), $this->getMocoObject());
     }
 }

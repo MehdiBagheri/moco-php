@@ -27,11 +27,6 @@ class UsersService extends AbstractService
         return $this->endpoint . 'users';
     }
 
-    public function getEntity(): string
-    {
-        return User::class;
-    }
-
     public function getMocoObject(): MocoEntityInterface
     {
         return new User();

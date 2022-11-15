@@ -27,11 +27,6 @@ class CompaniesService extends AbstractService
         return $this->endpoint . 'companies';
     }
 
-    protected function getEntity(): string
-    {
-        return Company::class;
-    }
-
     protected function getMocoObject(): MocoEntityInterface
     {
         return new Company();

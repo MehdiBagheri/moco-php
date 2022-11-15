@@ -18,11 +18,6 @@ class CustomPropertiesService extends AbstractService
         return $this->endpoint . 'account/custom_properties';
     }
 
-    protected function getEntity(): string
-    {
-        return CustomProperty::class;
-    }
-
     protected function getMocoObject(): CustomProperty
     {
         return new CustomProperty();

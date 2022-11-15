@@ -18,7 +18,6 @@ abstract class AbstractService
     }
 
     abstract protected function getEndpoint(): string;
-    abstract protected function getEntity(): string;
     abstract protected function getMocoObject(): MocoEntityInterface;
 
     protected function validateParams(MocoEntityInterface $mocoEntity, array $params): void
@@ -46,9 +45,9 @@ abstract class AbstractService
         return $params;
     }
 
-    protected function createMocoEntity(\stdClass $data, string $entity): MocoEntityInterface
+    protected function createMocoEntity(\stdClass $data, MocoEntityInterface $entity): MocoEntityInterface
     {
-        $entity = new $entity();
+        $data = (array) $data;
         foreach ($data as $key => $item) {
             $entity->$key = $item;
         }

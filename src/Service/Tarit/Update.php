@@ -11,6 +11,6 @@ trait Update
         $params = $this->prepareParams($params);
         $result = $this->client->request("PUT", $this->getEndPoint() . '/' . $id, $params);
 
-        return $this->createMocoEntity(json_decode($result), $this->getEntity());
+        return $this->createMocoEntity(json_decode($result), $this->getMocoObject());
     }
 }

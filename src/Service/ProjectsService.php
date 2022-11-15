@@ -27,11 +27,6 @@ class ProjectsService extends AbstractService
         return $this->endpoint . 'projects';
     }
 
-    protected function getEntity(): string
-    {
-        return Project::class;
-    }
-
     protected function getMocoObject(): MocoEntityInterface
     {
         return new Project();
@@ -50,7 +45,7 @@ class ProjectsService extends AbstractService
         $entities = [];
         if (is_array($result)) {
             foreach ($result as $entity) {
-                $entities[] = $this->createMocoEntity($entity, $this->getEntity());
+                $entities[] = $this->createMocoEntity($entity, $this->getMocoObject());
             }
         }
         return $entities;
@@ -60,14 +55,14 @@ class ProjectsService extends AbstractService
     {
         $result = $this->client->request("PUT", $this->getEndPoint() . '/' . $projectId . '/archive');
         $result = json_decode($result);
-        return $this->createMocoEntity($result, $this->getEntity());
+        return $this->createMocoEntity($result, $this->getMocoObject());
     }
 
     public function unarchive(int $projectId): Project
     {
         $result = $this->client->request("PUT", $this->getEndPoint() . '/' . $projectId . '/unarchive');
         $result = json_decode($result);
-        return $this->createMocoEntity($result, $this->getEntity());
+        return $this->createMocoEntity($result, $this->getMocoObject());
     }
 
     public function report(int $projectId): object

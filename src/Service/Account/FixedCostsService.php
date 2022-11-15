@@ -13,11 +13,6 @@ class FixedCostsService extends AbstractService
         return $this->endpoint . 'account/fixed_costs';
     }
 
-    protected function getEntity(): string
-    {
-        return FixedCosts::class;
-    }
-
     protected function getMocoObject(): MocoEntityInterface
     {
         return new FixedCosts();
@@ -37,12 +32,12 @@ class FixedCostsService extends AbstractService
         if (is_array($result)) {
             $entities = [];
             foreach ($result as $entity) {
-                $entities[] = $this->createMocoEntity($entity, $this->getEntity());
+                $entities[] = $this->createMocoEntity($entity, $this->getMocoObject());
             }
 
             return $entities;
         } else {
-            return $this->createMocoEntity($result, $this->getEntity());
+            return $this->createMocoEntity($result, $this->getMocoObject());
         }
     }
 }

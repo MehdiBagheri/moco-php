@@ -13,11 +13,6 @@ class HourlyRatesService extends AbstractService
         return $this->endpoint . 'account/hourly_rates';
     }
 
-    protected function getEntity(): string
-    {
-        return HourlyRate::class;
-    }
-
     protected function getMocoObject(): MocoEntityInterface
     {
         return new HourlyRate();
@@ -37,12 +32,12 @@ class HourlyRatesService extends AbstractService
         if (is_array($result)) {
             $entities = [];
             foreach ($result as $entity) {
-                $entities[] = $this->createMocoEntity($entity, $this->getEntity());
+                $entities[] = $this->createMocoEntity($entity, $this->getMocoObject());
             }
 
             return $entities;
         } else {
-            return $this->createMocoEntity($result, $this->getEntity());
+            return $this->createMocoEntity($result, $this->getMocoObject());
         }
     }
 }

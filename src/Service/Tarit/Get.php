@@ -20,12 +20,12 @@ trait Get
         if (is_array($result)) {
             $entities = [];
             foreach ($result as $entity) {
-                $entities[] = $this->createMocoEntity($entity, $this->getEntity());
+                $entities[] = $this->createMocoEntity($entity, $this->getMocoObject());
             }
 
             return $entities;
         } else {
-            return $this->createMocoEntity($result, $this->getEntity());
+            return $this->createMocoEntity($result, $this->getMocoObject());
         }
     }
 }

@@ -5,13 +5,14 @@ namespace Moco\Service;
 use Moco\Exception\InvalidRequestException;
 use Moco\MocoClient;
 //use Moco\Service\Account\CatalogServices;
+use Moco\Service\Account\CatalogServices;
 use Moco\Service\Account\CustomPropertiesService;
 use Moco\Service\Account\FixedCostsService;
 use Moco\Service\Account\HourlyRatesService;
 use Moco\Service\Account\InternalHourlyRatesService;
 
 /**
-// * @property CatalogServices $catalogServices
+ * @property CatalogServices $catalogServices
  * @property CustomPropertiesService $customProperties
  * @property FixedCostsService $fixedCosts
  * @property HourlyRatesService $hourlyRates
@@ -27,7 +28,7 @@ class AccountServiceFactory
     }
 
     private array $services = [
-//      'catalogServices' => CatalogServices::class,
+      'catalogServices' => CatalogServices::class,
       'customProperties' => CustomPropertiesService::class,
       'fixedCosts' => FixedCostsService::class,
       'hourlyRates' => HourlyRatesService::class,

@@ -4,6 +4,7 @@ namespace Unit\Service;
 
 use Moco\Exception\InvalidRequestException;
 use Moco\Exception\InvalidResponseException;
+use Moco\Exception\NotFoundException;
 
 class UsersServiceTest extends AbstractServiceTest
 {
@@ -56,7 +57,7 @@ class UsersServiceTest extends AbstractServiceTest
         $this->assertEquals('ft_firstname', $users[0]->firstname);
 
         $this->mockResponse(404);
-        $this->expectException(InvalidRequestException::class);
+        $this->expectException(NotFoundException::class);
         $this->mocoClient->users->get(1234);
     }
 
@@ -69,7 +70,7 @@ class UsersServiceTest extends AbstractServiceTest
         $this->assertEquals('changed', $user->firstname);
 
         $this->mockResponse(404);
-        $this->expectException(InvalidRequestException::class);
+        $this->expectException(NotFoundException::class);
         $this->mocoClient->users->update(1234, $params);
     }
 

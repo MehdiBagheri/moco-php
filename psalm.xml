@@ -12,4 +12,9 @@
             <directory name="vendor" />
         </ignoreFiles>
     </projectFiles>
+    <issueHandlers>
+        <LessSpecificReturnStatement errorLevel="suppress" />
+        <MoreSpecificReturnType errorLevel="suppress" />
+    </issueHandlers>
+
 </psalm>
