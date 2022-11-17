@@ -20,37 +20,6 @@ use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamFactoryInterface;
 
-//TODO
-//Activities
-//Comments
-//Contacts
-//Deal Categories
-//Deals / Leads
-//Invoice Payments
-//Invoice Reminders
-//Invoices
-//Offers
-//Planning Entry (New Planning)
-//Project Contracts
-//Project Expenses
-//Project Payment Schedules
-//Project Recurring Expenses
-//Project Tasks
-//Purchase Categories
-//Purchase Drafts
-//Purchase Payments
-//Purchases
-//Receipts
-//Schedules (Absences)
-//Tags / Labels
-//Units / Teams
-//User Employments
-//User Holidays
-//User Presences
-//User Work Time Adjustments
-//Vat Codes
-//WebHooks
-//Reports
 /**
  * @property UnitsService $units
  * @property UsersService $users
