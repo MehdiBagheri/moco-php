@@ -12,7 +12,8 @@ class ServiceFactory
         'companies' => CompaniesService::class,
         'account' => AccountServiceFactory::class,
         'projects' => ProjectsService::class,
-        'projectTasks' => ProjectTasksService::class
+        'projectTasks' => ProjectTasksService::class,
+        'activities' => ActivitiesService::class
     ];
 
     protected array $services = [];

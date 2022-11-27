@@ -9,6 +9,7 @@ use Moco\Exception\InvalidResponseException;
 use Moco\Exception\NotFoundException;
 use Moco\Service\AbstractService;
 use Moco\Service\AccountServiceFactory;
+use Moco\Service\ActivitiesService;
 use Moco\Service\CompaniesService;
 use Moco\Service\ProjectsService;
 use Moco\Service\ProjectTasksService;
@@ -20,6 +21,37 @@ use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamFactoryInterface;
 
+//TODO
+//Activities
+//Comments
+//Contacts
+//Deal Categories
+//Deals / Leads
+//Invoice Payments
+//Invoice Reminders
+//Invoices
+//Offers
+//Planning Entry (New Planning)
+//Project Contracts
+//Project Expenses
+//Project Payment Schedules
+//Project Recurring Expenses
+//Purchase Categories
+//Purchase Drafts
+//Purchase Payments
+//Purchases
+//Receipts
+//Schedules (Absences)
+//Tags / Labels
+//Units / Teams
+//User Employments
+//User Holidays
+//User Presences
+//User Work Time Adjustments
+//Vat Codes
+//WebHooks
+//Reports
+
 /**
  * @property UnitsService $units
  * @property UsersService $users
@@ -27,6 +59,7 @@ use Psr\Http\Message\StreamFactoryInterface;
  * @property AccountServiceFactory $account
  * @property ProjectsService $projects
  * @property ProjectTasksService $projectTasks
+ * @property ActivitiesService $activities
  */
 class MocoClient
 {

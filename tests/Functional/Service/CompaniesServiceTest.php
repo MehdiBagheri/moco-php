@@ -34,6 +34,7 @@ class CompaniesServiceTest extends AbstractServiceTest
         /**
 * if it was successful then the user is object is returned so
 */
+        $this->createParams['identifier'] = 'C-1234' . time();
         $company = $this->mocoClient->companies->create($this->createParams);
         $this->assertEquals($company->name, 'Company A');
         return $company->id;
