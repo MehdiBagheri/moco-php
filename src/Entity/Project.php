@@ -34,7 +34,7 @@ namespace Moco\Entity;
  * @property array $tasks
  * @property array $contracts
  */
-class Project extends AbstractMocoEntity implements MocoEntityInterface
+class Project extends AbstractMocoEntity
 {
     public function getMandatoryFields(): array
     {

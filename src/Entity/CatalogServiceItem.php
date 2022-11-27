@@ -18,7 +18,7 @@ namespace Moco\Entity;
  * @property string $created_at
  * @property string $updated_at
  */
-class CatalogServiceItem extends AbstractMocoEntity implements MocoEntityInterface
+class CatalogServiceItem extends AbstractMocoEntity
 {
     public function getMandatoryFields(): array
     {

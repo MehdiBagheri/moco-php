@@ -2,7 +2,7 @@
 
 namespace Moco\Service;
 
-use Moco\Entity\MocoEntityInterface;
+use Moco\Entity\AbstractMocoEntity;
 use Moco\Entity\User;
 use Moco\Service\Tarit\Create;
 use Moco\Service\Tarit\Delete;
@@ -27,7 +27,7 @@ class UsersService extends AbstractService
         return $this->endpoint . 'users';
     }
 
-    public function getMocoObject(): MocoEntityInterface
+    public function getMocoObject(): AbstractMocoEntity
     {
         return new User();
     }

@@ -30,7 +30,7 @@ namespace Moco\Entity;
  * @property string $updated_at
  * @property int $debit_number
  */
-class Company extends AbstractMocoEntity implements MocoEntityInterface
+class Company extends AbstractMocoEntity
 {
     public function getMandatoryFields(): array
     {

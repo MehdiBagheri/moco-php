@@ -2,7 +2,7 @@
 
 namespace Moco\Service;
 
-use Moco\Entity\MocoEntityInterface;
+use Moco\Entity\AbstractMocoEntity;
 use Moco\Entity\Project;
 use Moco\Service\Tarit\Create;
 use Moco\Service\Tarit\Delete;
@@ -27,7 +27,7 @@ class ProjectsService extends AbstractService
         return $this->endpoint . 'projects';
     }
 
-    protected function getMocoObject(): MocoEntityInterface
+    protected function getMocoObject(): AbstractMocoEntity
     {
         return new Project();
     }

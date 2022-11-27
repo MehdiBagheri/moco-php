@@ -3,7 +3,7 @@
 namespace Moco\Service\Account;
 
 use Moco\Entity\FixedCosts;
-use Moco\Entity\MocoEntityInterface;
+use Moco\Entity\AbstractMocoEntity;
 use Moco\Service\AbstractService;
 
 class FixedCostsService extends AbstractService
@@ -13,12 +13,12 @@ class FixedCostsService extends AbstractService
         return $this->endpoint . 'account/fixed_costs';
     }
 
-    protected function getMocoObject(): MocoEntityInterface
+    protected function getMocoObject(): AbstractMocoEntity
     {
         return new FixedCosts();
     }
 
-    public function get(array $params = null): MocoEntityInterface|array|null
+    public function get(array $params = null): AbstractMocoEntity|array|null
     {
         $urlQuery = '';
         if (!is_null($params)) {

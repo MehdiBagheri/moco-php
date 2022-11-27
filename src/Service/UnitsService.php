@@ -2,7 +2,7 @@
 
 namespace Moco\Service;
 
-use Moco\Entity\MocoEntityInterface;
+use Moco\Entity\AbstractMocoEntity;
 use Moco\Entity\Unit;
 
 class UnitsService extends AbstractService
@@ -12,7 +12,7 @@ class UnitsService extends AbstractService
         return $this->endpoint . 'units';
     }
 
-    protected function getMocoObject(): MocoEntityInterface
+    protected function getMocoObject(): AbstractMocoEntity
     {
         return new Unit();
     }

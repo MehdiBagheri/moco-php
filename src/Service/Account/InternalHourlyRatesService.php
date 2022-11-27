@@ -3,7 +3,7 @@
 namespace Moco\Service\Account;
 
 use Moco\Entity\InternalHourlyRate;
-use Moco\Entity\MocoEntityInterface;
+use Moco\Entity\AbstractMocoEntity;
 use Moco\Service\AbstractService;
 
 class InternalHourlyRatesService extends AbstractService
@@ -13,7 +13,7 @@ class InternalHourlyRatesService extends AbstractService
         return $this->endpoint . 'account/internal_hourly_rates';
     }
 
-    protected function getMocoObject(): MocoEntityInterface
+    protected function getMocoObject(): AbstractMocoEntity
     {
         return new InternalHourlyRate();
     }

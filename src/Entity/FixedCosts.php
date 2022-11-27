@@ -10,7 +10,7 @@ namespace Moco\Entity;
  * @property string $created_at
  * @property string $updated_at
  */
-class FixedCosts extends AbstractMocoEntity implements MocoEntityInterface
+class FixedCosts extends AbstractMocoEntity
 {
     public function getMandatoryFields(): array
     {

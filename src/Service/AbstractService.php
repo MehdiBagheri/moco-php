@@ -2,7 +2,7 @@
 
 namespace Moco\Service;
 
-use Moco\Entity\MocoEntityInterface;
+use Moco\Entity\AbstractMocoEntity;
 use Moco\Exception\InvalidRequestException;
 use Moco\MocoClient;
 
@@ -18,9 +18,9 @@ abstract class AbstractService
     }
 
     abstract protected function getEndpoint(): string;
-    abstract protected function getMocoObject(): MocoEntityInterface;
+    abstract protected function getMocoObject(): AbstractMocoEntity;
 
-    protected function validateParams(MocoEntityInterface $mocoEntity, array $params): void
+    protected function validateParams(AbstractMocoEntity $mocoEntity, array $params): void
     {
         $mandatoryFields = $mocoEntity->getMandatoryFields();
         foreach ($mandatoryFields as $mandatoryField) {
@@ -45,7 +45,7 @@ abstract class AbstractService
         return $params;
     }
 
-    protected function createMocoEntity(\stdClass $data, MocoEntityInterface $entity): MocoEntityInterface
+    protected function createMocoEntity(\stdClass $data, AbstractMocoEntity $entity): AbstractMocoEntity
     {
         $data = (array) $data;
         foreach ($data as $key => $item) {

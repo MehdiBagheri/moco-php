@@ -2,8 +2,8 @@
 
 namespace Moco\Service;
 
+use Moco\Entity\AbstractMocoEntity;
 use Moco\Entity\Company;
-use Moco\Entity\MocoEntityInterface;
 use Moco\Service\Tarit\Create;
 use Moco\Service\Tarit\Delete;
 use Moco\Service\Tarit\Get;
@@ -27,7 +27,7 @@ class CompaniesService extends AbstractService
         return $this->endpoint . 'companies';
     }
 
-    protected function getMocoObject(): MocoEntityInterface
+    protected function getMocoObject(): AbstractMocoEntity
     {
         return new Company();
     }

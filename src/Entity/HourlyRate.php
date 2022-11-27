@@ -7,7 +7,7 @@ namespace Moco\Entity;
  * @property Task[] $tasks
  * @property array $users
  */
-class HourlyRate extends AbstractMocoEntity implements MocoEntityInterface
+class HourlyRate extends AbstractMocoEntity
 {
     public function getMandatoryFields(): array
     {

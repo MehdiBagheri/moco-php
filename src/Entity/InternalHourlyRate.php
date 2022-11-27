@@ -7,7 +7,7 @@ namespace Moco\Entity;
  * @property string $full_name
  * @property array $rates
  */
-class InternalHourlyRate extends AbstractMocoEntity implements MocoEntityInterface
+class InternalHourlyRate extends AbstractMocoEntity
 {
     public function getMandatoryFields(): array
     {

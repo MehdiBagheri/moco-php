@@ -2,11 +2,11 @@
 
 namespace Moco\Service\Tarit;
 
-use Moco\Entity\MocoEntityInterface;
+use Moco\Entity\AbstractMocoEntity;
 
 trait Get
 {
-    public function get(int|array|null $params = null): MocoEntityInterface|array|null
+    public function get(int|array|null $params = null): AbstractMocoEntity|array|null
     {
         if (is_array($params)) {
             $params = $this->prepareParams($params);

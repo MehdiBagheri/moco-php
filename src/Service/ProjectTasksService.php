@@ -2,7 +2,7 @@
 
 namespace Moco\Service;
 
-use Moco\Entity\MocoEntityInterface;
+use Moco\Entity\AbstractMocoEntity;
 use Moco\Entity\ProjectTask;
 use Moco\Exception\InvalidRequestException;
 use Moco\Service\Tarit\Create;
@@ -43,12 +43,12 @@ class ProjectTasksService extends AbstractService
         return ProjectTask::class;
     }
 
-    protected function getMocoObject(): MocoEntityInterface
+    protected function getMocoObject(): AbstractMocoEntity
     {
         return new ProjectTask();
     }
 
-    public function get(array $params): MocoEntityInterface|array|null
+    public function get(array $params): AbstractMocoEntity|array|null
     {
         $this->setProjectId($params);
         if (isset($params['id']) && is_int($params['id'])) {
@@ -57,14 +57,14 @@ class ProjectTasksService extends AbstractService
         return $this->taritGet($params);
     }
 
-    public function create(array $params): MocoEntityInterface
+    public function create(array $params): AbstractMocoEntity
     {
         $this->setProjectId($params);
         unset($params['project_id']);
         return $this->taritCreate($params);
     }
 
-    public function update(array $params): MocoEntityInterface
+    public function update(array $params): AbstractMocoEntity
     {
         $this->setProjectId($params);
         if (isset($params['id']) && is_int($params['id'])) {

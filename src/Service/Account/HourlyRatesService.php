@@ -3,7 +3,7 @@
 namespace Moco\Service\Account;
 
 use Moco\Entity\HourlyRate;
-use Moco\Entity\MocoEntityInterface;
+use Moco\Entity\AbstractMocoEntity;
 use Moco\Service\AbstractService;
 
 class HourlyRatesService extends AbstractService
@@ -13,12 +13,12 @@ class HourlyRatesService extends AbstractService
         return $this->endpoint . 'account/hourly_rates';
     }
 
-    protected function getMocoObject(): MocoEntityInterface
+    protected function getMocoObject(): AbstractMocoEntity
     {
         return new HourlyRate();
     }
 
-    public function get(array $params = null): MocoEntityInterface|array|null
+    public function get(array $params = null): AbstractMocoEntity|array|null
     {
         $urlQuery = '';
         if (!is_null($params)) {

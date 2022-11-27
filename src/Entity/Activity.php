@@ -23,7 +23,7 @@ namespace Moco\Entity;
  * @property string $created_at
  * @property string $updated_at
  */
-class Activity extends AbstractMocoEntity implements MocoEntityInterface
+class Activity extends AbstractMocoEntity
 {
     public function getMandatoryFields(): array
     {

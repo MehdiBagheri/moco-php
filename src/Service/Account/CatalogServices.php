@@ -4,7 +4,7 @@ namespace Moco\Service\Account;
 
 use Moco\Entity\Catalog;
 use Moco\Entity\CatalogServiceItem;
-use Moco\Entity\MocoEntityInterface;
+use Moco\Entity\AbstractMocoEntity;
 use Moco\Exception\InvalidRequestException;
 use Moco\Service\AbstractService;
 use Moco\Service\Tarit\Create;
@@ -30,7 +30,7 @@ class CatalogServices extends AbstractService
         return $this->endpoint . 'account/catalog_services';
     }
 
-    protected function getMocoObject(): MocoEntityInterface
+    protected function getMocoObject(): AbstractMocoEntity
     {
         return new Catalog();
     }

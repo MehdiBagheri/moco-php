@@ -2,11 +2,11 @@
 
 namespace Moco\Service\Tarit;
 
-use Moco\Entity\MocoEntityInterface;
+use Moco\Entity\AbstractMocoEntity;
 
 trait Create
 {
-    public function create(array $params): MocoEntityInterface
+    public function create(array $params): AbstractMocoEntity
     {
         $this->validateParams($this->getMocoObject(), $params);
         $params = $this->prepareParams($params);

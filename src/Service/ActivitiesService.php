@@ -2,8 +2,8 @@
 
 namespace Moco\Service;
 
+use Moco\Entity\AbstractMocoEntity;
 use Moco\Entity\Activity;
-use Moco\Entity\MocoEntityInterface;
 use Moco\Exception\InvalidRequestException;
 use Moco\Service\Tarit\Create;
 use Moco\Service\Tarit\Delete;
@@ -28,7 +28,7 @@ class ActivitiesService extends AbstractService
         return $this->endpoint . 'activities';
     }
 
-    protected function getMocoObject(): MocoEntityInterface
+    protected function getMocoObject(): AbstractMocoEntity
     {
         return new Activity();
     }
