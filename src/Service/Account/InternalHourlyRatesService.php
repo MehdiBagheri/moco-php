@@ -48,7 +48,7 @@ class InternalHourlyRatesService extends AbstractService
     public function update(array $params): bool
     {
         $params = $this->prepareParams($params);
-        $this->validateParams($this->getMocoObject(), $params);
+        $this->validateParams($this->getMocoObject()->getMandatoryFields(), $params);
         $result = $this->client->request("PATCH", $this->getEndPoint() . '/', $params);
 
         $result = json_decode($result);

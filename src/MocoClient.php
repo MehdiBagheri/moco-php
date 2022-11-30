@@ -10,6 +10,7 @@ use Moco\Exception\NotFoundException;
 use Moco\Service\AbstractService;
 use Moco\Service\AccountServiceFactory;
 use Moco\Service\ActivitiesService;
+use Moco\Service\CommentsService;
 use Moco\Service\CompaniesService;
 use Moco\Service\ProjectsService;
 use Moco\Service\ProjectTasksService;
@@ -22,7 +23,6 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamFactoryInterface;
 
 //TODO
-//Activities
 //Comments
 //Contacts
 //Deal Categories
@@ -60,6 +60,7 @@ use Psr\Http\Message\StreamFactoryInterface;
  * @property ProjectsService $projects
  * @property ProjectTasksService $projectTasks
  * @property ActivitiesService $activities
+ * @property CommentsService $comments
  */
 class MocoClient
 {

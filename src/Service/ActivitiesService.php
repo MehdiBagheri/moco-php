@@ -50,16 +50,7 @@ class ActivitiesService extends AbstractService
     public function disregard(array $params): array
     {
         $mandatoryParams = ['reason', 'activity_ids', 'company_id'];
-        foreach ($mandatoryParams as $mandatoryField) {
-            if (!isset($params[$mandatoryField])) {
-                throw new InvalidRequestException(
-                    'The parameter(' . $mandatoryField . ') is missing or it does not have same 
-                    format/structure as API. 
-                    The following params are mandatory => ' . implode(', ', $mandatoryParams)
-                );
-            }
-        }
-
+        $this->validateParams($mandatoryParams, $params);
         $endpoint = $this->getEndpoint() . '/disregard';
         $params = $this->prepareParams($params);
         $result = $this->client->request('POST', $endpoint, $params);

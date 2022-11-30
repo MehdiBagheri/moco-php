@@ -20,9 +20,8 @@ abstract class AbstractService
     abstract protected function getEndpoint(): string;
     abstract protected function getMocoObject(): AbstractMocoEntity;
 
-    protected function validateParams(AbstractMocoEntity $mocoEntity, array $params): void
+    protected function validateParams(array $mandatoryFields, array $params): void
     {
-        $mandatoryFields = $mocoEntity->getMandatoryFields();
         foreach ($mandatoryFields as $mandatoryField) {
             if (!isset($params[$mandatoryField])) {
                 throw new InvalidRequestException(

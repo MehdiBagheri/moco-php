@@ -44,7 +44,8 @@ class CatalogServices extends AbstractService
 
     public function createItem(int $serviceId, array $params): CatalogServiceItem
     {
-        $this->validateParams(new CatalogServiceItem(), $params);
+        $mandatoryFields = new CatalogServiceItem();
+        $this->validateParams($mandatoryFields->getMandatoryFields(), $params);
         $params = $this->prepareParams($params);
         $endpoint = $this->getEndpoint() . '/' . $serviceId . '/items';
         $result = $this->client->request('POST', $endpoint, $params);

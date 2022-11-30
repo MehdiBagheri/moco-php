@@ -158,7 +158,7 @@ class ProjectsServiceTest extends AbstractServiceTest
 
     public function testDelete(): void
     {
-        $this->mockResponse(200, '');
+        $this->mockResponse(204);
         $this->assertNull($this->mocoClient->projects->delete(1234567));
     }
 }
