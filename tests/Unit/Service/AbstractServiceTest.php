@@ -12,7 +12,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
 use Unit\MocoClientTest;
 
-class AbstractServiceTest extends TestCase
+abstract class AbstractServiceTest extends TestCase
 {
     public MocoClientTest $mocoClient;
 

@@ -12,6 +12,7 @@ use Moco\Service\AccountServiceFactory;
 use Moco\Service\ActivitiesService;
 use Moco\Service\CommentsService;
 use Moco\Service\CompaniesService;
+use Moco\Service\ContactsService;
 use Moco\Service\ProjectsService;
 use Moco\Service\ProjectTasksService;
 use Moco\Service\ServiceFactory;
@@ -23,8 +24,6 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamFactoryInterface;
 
 //TODO
-//Comments
-//Contacts
 //Deal Categories
 //Deals / Leads
 //Invoice Payments
@@ -61,6 +60,7 @@ use Psr\Http\Message\StreamFactoryInterface;
  * @property ProjectTasksService $projectTasks
  * @property ActivitiesService $activities
  * @property CommentsService $comments
+ * @property ContactsService $contacts
  */
 class MocoClient
 {

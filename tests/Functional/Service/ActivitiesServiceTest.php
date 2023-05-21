@@ -57,27 +57,27 @@ class ActivitiesServiceTest extends AbstractServiceTest
         return $data;
     }
 
-    /**
-     * @depends testUpdate
-     */
-    public function testStartTimer(array $data): array
-    {
-        $this->markTestSkipped();
-        $activity = $this->mocoClient->activities->startTimer($data['activity_id']);
-        $this->assertInstanceOf(Activity::class, $activity);
-        return $data;
-    }
-
-    /**
-     * @depends testStartTimer
-     */
-    public function testStopTimer(array $data): array
-    {
-        $this->markTestSkipped();
-        $activity = $this->mocoClient->activities->stopTimer($data['activity_id']);
-        $this->assertInstanceOf(Activity::class, $activity);
-        return $data;
-    }
+//    /**
+//     * @depends testUpdate
+//     */
+//    public function testStartTimer(array $data): array
+//    {
+//        $this->markTestSkipped();
+//        $activity = $this->mocoClient->activities->startTimer($data['activity_id']);
+//        $this->assertInstanceOf(Activity::class, $activity);
+//        return $data;
+//    }
+//
+//    /**
+//     * @depends testStartTimer
+//     */
+//    public function testStopTimer(array $data): array
+//    {
+//        $this->markTestSkipped();
+//        $activity = $this->mocoClient->activities->stopTimer($data['activity_id']);
+//        $this->assertInstanceOf(Activity::class, $activity);
+//        return $data;
+//    }
 
     /**
      * @depends testUpdate

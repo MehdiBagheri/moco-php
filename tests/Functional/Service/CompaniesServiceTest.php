@@ -19,7 +19,7 @@ class CompaniesServiceTest extends AbstractServiceTest
         'info'                            => 'info',
         'customer_properties'             => ['test' => 'test'],
         'tags'                            => ['test'],
-        'user_id'                         => 933671632,
+        'user_id'                         => 933685325,
         'footer'                          => '<div>test</div>',
         'currency'                        => 'EUR',
         'identifier'                      => 'C-1234',
