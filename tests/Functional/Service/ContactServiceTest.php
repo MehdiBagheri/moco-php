@@ -23,7 +23,10 @@ class ContactServiceTest extends AbstractServiceTest
         return $contact->id;
     }
 
-    public function getPeople(): void
+    /**
+     * @depends testCreate
+     */
+    public function testGetPeople(): void
     {
         $contacts = $this->mocoClient->contacts->get();
         $this->assertIsArray($contacts);

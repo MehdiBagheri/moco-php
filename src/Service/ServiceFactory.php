@@ -3,6 +3,7 @@
 namespace Moco\Service;
 
 use Moco\MocoClient;
+use Moco\Service\Deal\DealCategoryService;
 
 class ServiceFactory
 {
@@ -15,7 +16,8 @@ class ServiceFactory
         'projectTasks' => ProjectTasksService::class,
         'activities' => ActivitiesService::class,
         'comments' => CommentsService::class,
-        'contacts' => ContactsService::class
+        'contacts' => ContactsService::class,
+        'dealCategory' => DealCategoryService::class
     ];
 
     protected array $services = [];
