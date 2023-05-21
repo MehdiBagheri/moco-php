@@ -16,9 +16,13 @@ class DealCategoryServiceTest extends AbstractServiceTest
 
     public function testCreate(): int
     {
-        $dealCategory = $this->mocoClient->dealCategory->create($this->params);
+        $params = [
+            'name' => 'new deal category' . time(),
+            'probability' => 15
+        ];
+        $dealCategory = $this->mocoClient->dealCategory->create($params);
         $this->assertInstanceOf(DealCategory::class, $dealCategory);
-        $this->assertEquals('new deal category', $dealCategory->name);
+        $this->assertEquals($params['name'], $dealCategory->name);
         return $dealCategory->id;
     }
 
@@ -47,9 +51,10 @@ class DealCategoryServiceTest extends AbstractServiceTest
      */
     public function testUpdate(int $dealId): int
     {
-        $deal = $this->mocoClient->dealCategory->update($dealId, ['name' => 'updated']);
+        $param = ['name' => 'updated' . time()];
+        $deal = $this->mocoClient->dealCategory->update($dealId, $param);
         $this->assertInstanceOf(DealCategory::class, $deal);
-        $this->assertEquals('updated', $deal->name);
+        $this->assertEquals($param['name'], $deal->name);
         return $deal->id;
     }
 

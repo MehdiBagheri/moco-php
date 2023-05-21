@@ -28,6 +28,7 @@ class UsersServiceTest extends AbstractServiceTest
         /**
 * if it was successful then the user is object is returned so
 */
+        $this->createParams['email'] = 'mehdi.bagheri' . time() . '@ft.de';
         $user = $this->mocoClient->users->create($this->createParams);
         $this->assertEquals($user->firstname, 'ft_firstname');
         return $user->id;
