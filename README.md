@@ -34,7 +34,6 @@ The **MOCO PHP SDK** provides convenient access to the [MOCO API](https://everii
 - [Testing](#-testing)
 - [Contributing](#-contributing)
 - [Versioning](#-versioning)
-- [Changelog](#-changelog)
 - [License](#-license)
 
 ## 🔧 Requirements
@@ -716,11 +715,6 @@ We officially support and test against:
 - **PHP 8.1** - Fully supported  
 - **PHP 8.2** - Fully supported
 - **PHP 8.3** - Fully supported
-
-
-## 📋 Changelog
-
-### [1.0.0] - 2025-08-12
 
 ## 📄 License
 
