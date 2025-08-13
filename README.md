@@ -1,7 +1,7 @@
 # MOCO PHP SDK
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/mehdibagheri/moco-php.svg?style=flat-square)](https://packagist.org/packages/mehdibagheri/moco-php)
-[![Build Status](https://github.com/MehdiBagheri/moco-php/actions/workflows/cli.yml/badge.svg?branch=main)](https://github.com/MehdiBagheri/moco-php/actions?query=branch%3Amain)
+[![Build Status](https://github.com/MehdiBagheri/moco-php/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/MehdiBagheri/moco-php/actions?query=branch%3Amain)
 [![License](https://poser.pugx.org/mehdibagheri/moco-php/license.svg)](https://packagist.org/packages/mehdibagheri/moco-php)
 
 
