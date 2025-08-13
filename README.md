@@ -1,10 +1,9 @@
 # MOCO PHP SDK
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/mehdibagheri/moco-php.svg?style=flat-square)](https://packagist.org/packages/mehdibagheri/moco-php)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/mehdibagheri/moco-php/Tests?label=tests)](https://github.com/mehdibagheri/moco-php/actions?query=workflow%3ATests+branch%3Amain)
-[![Quality Score](https://img.shields.io/scrutinizer/g/mehdibagheri/moco-php.svg?style=flat-square)](https://scrutinizer-ci.com/g/mehdibagheri/moco-php)
-[![Total Downloads](https://img.shields.io/packagist/dt/mehdibagheri/moco-php.svg?style=flat-square)](https://packagist.org/packages/mehdibagheri/moco-php)
-[![PHP Version Require](https://poser.pugx.org/mehdibagheri/moco-php/require/php)](https://packagist.org/packages/mehdibagheri/moco-php)
+[![Build Status](https://github.com/MehdiBagheri/moco-php/actions/workflows/php.yml/badge.svg?branch=main)](https://github.com/MehdiBagheri/moco-php/actions?query=branch%3Amain)
+[![License](https://poser.pugx.org/mehdibagheri/moco-php/license.svg)](https://packagist.org/packages/mehdibagheri/moco-php)
+
 
 The **MOCO PHP SDK** provides convenient access to the [MOCO API](https://everii-group.github.io/mocoapp-api-docs/) from applications written in PHP. It includes a comprehensive set of pre-built services and models to simplify integration with MOCO's time tracking, project management, and invoicing platform.
 
